@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres coger y ser mi gf?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        #no {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¿Quieres coger y ser mi gf?</h1>
+        <div class="buttons">
+            <button id="yes">Sí</button>
+            <button id="no">No</button>
+        </div>
+    </div>
+
+    <script>
+        const noButton = document.getElementById('no');
+
+        noButton.addEventListener('mouseover', () => {
+            const randomX = Math.floor(Math.random() * window.innerWidth);
+            const randomY = Math.floor(Math.random() * window.innerHeight);
+            noButton.style.position = 'absolute';
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+        });
+
+        document.getElementById('yes').addEventListener('click', () => {
+            alert('¡Obviamente ya sabia que ibas aceptar!');
+        });
+    </script>
+</body>
+</html>
