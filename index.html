@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quieres chingar y ser mi gf?</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
+        body {
+            font-family: 'Dancing Script', cursive;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffe6e6;
+            margin: 0;
+        }
+        .container {
+            text-align: center;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 22px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #d8bfd8;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+        }
+        #no {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>¿Quieres chingar y ser mi gf?</h1>
+        <div class="buttons">
+            <button id="yes">Sí</button>
+            <button id="no">No</button>
+        </div>
+    </div>
+
+    <script>
+        const noButton = document.getElementById('no');
+
+        noButton.addEventListener('mouseover', () => {
+            const randomX = Math.floor(Math.random() * window.innerWidth);
+            const randomY = Math.floor(Math.random() * window.innerHeight);
+            noButton.style.position = 'absolute';
+            noButton.style.left = `${randomX}px`;
+            noButton.style.top = `${randomY}px`;
+        });
+
+        document.getElementById('yes').addEventListener('click', () => {
+            alert('¡Obviamente sabia que aceptarias!');
+        });
+    </script>
+</body>
+</html>
