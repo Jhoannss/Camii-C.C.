@@ -3,77 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Encuesta</title>
-
+    <title>Entonces Rubia ¿pasamos la prueba o nos reímos jugando Roblox?</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
+            font-family: 'Dancing Script', cursive;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
+            background-color: #ffe6e6;
+            margin: 0;
         }
-
         .container {
-            background-color: #800000;
-            color: #000000;
-            border-radius: 10px;
-            padding: 30px;
-            width: 80%;
-            max-width: 600px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             text-align: center;
         }
-
-        h1 {
-            font-weight: bold;
-            font-size: 2em;
+        .buttons {
+            margin-top: 20px;
         }
-
-        select, textarea, button {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            font-size: 1em;
-            border: 2px solid #800000;
-            border-radius: 5px;
-        }
-
         button {
-            background-color: #8B0000;
-            color: white;
-            border: none;
+            padding: 10px 20px;
+            font-size: 22px;
+            margin: 5px;
             cursor: pointer;
+            background-color: #d8bfd8;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
         }
-
-        button:hover {
-            background-color: #660000;
-        }
-
-        textarea {
-            resize: vertical;
-            height: 100px;
+        #no {
+            position: relative;
         }
     </style>
-
 </head>
 <body>
     <div class="container">
-        <h1>Encuesta</h1>
-        <p>¿Quién eres?</p>
-        <select id="question1">
-            <option value="K">K</option>
-            <option value="C">C</option>
-            <option value="F">F</option>
-        </select>
-        <p>Si pudieras decirme algo, ¿qué sería?</p>
-        <textarea id="question2" placeholder="Escribe tu respuesta aquí"></textarea>
-        <p>¿Te gustaría un café conmigo?</p>
-        <button>Sí</button>
-        <button>No</button>
+        <h1>Entonces Rubia ¿pasamos la prueba o nos reímos jugando Roblox?</h1>
+        <div class="buttons">
+            <button id="yes">Sí</button>
+            <button id="no">No</button>
+        </div>
     </div>
+
+    <script>
+        const noButton = document.getElementById('no');
+        let noClickCount = 0;
+
+        // Cuando el usuario pasa el ratón por encima, el botón se mueve.
+        noButton.addEventListener('mouseover', () => {
+            if (noClickCount === 0) { // Solo mueve el botón si no se ha hecho clic en él aún
+                const randomX = Math.floor(Math.random() * window.innerWidth);
+                const randomY = Math.floor(Math.random() * window.innerHeight);
+                noButton.style.position = 'absolute';
+                noButton.style.left = `${randomX}px`;
+                noButton.style.top = `${randomY}px`;
+            }
+        });
+
+        // Cambiar el texto del botón "No" cuando se hace clic en él.
+        noButton.addEventListener('click', () => {
+            noClickCount++; // Incrementamos el contador de clics
+
+            if (noClickCount === 1) {
+                noButton.textContent = '¿Cómo que no, chiquita?';
+            } else if (noClickCount === 2) {
+                noButton.textContent = 'No digas eso';
+            } else if (noClickCount === 3) {
+                noButton.textContent = 'Jaja, ni modo';
+                noButton.style.position = 'relative'; // El botón ya no se mueve después del tercer clic
+            }
+        });
+
+        // Al hacer clic en "Sí", muestra un mensaje.
+        document.getElementById('yes').addEventListener('click', () => {
+            alert('¡Obviamente sabía que aceptarías!');
+        });
+    </script>
 </body>
 </html>
