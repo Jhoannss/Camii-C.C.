@@ -47,9 +47,10 @@
 
     <script>
         const noButton = document.getElementById('no');
+        const yesButton = document.getElementById('yes');
         let noClickCount = 0;
 
-        // Cuando el usuario pasa el ratón por encima, el botón se mueve.
+        // Movimiento del botón "No" cuando pasa el ratón por encima, pero solo hasta el primer clic.
         noButton.addEventListener('mouseover', () => {
             if (noClickCount === 0) { // Solo mueve el botón si no se ha hecho clic en él aún
                 const randomX = Math.floor(Math.random() * window.innerWidth);
@@ -60,7 +61,7 @@
             }
         });
 
-        // Cambiar el texto del botón "No" cuando se hace clic en él.
+        // Cambiar el texto del botón "No" y evitar que se mueva después de cierto número de clics.
         noButton.addEventListener('click', () => {
             noClickCount++; // Incrementamos el contador de clics
 
@@ -74,8 +75,8 @@
             }
         });
 
-        // Al hacer clic en "Sí", muestra un mensaje.
-        document.getElementById('yes').addEventListener('click', () => {
+        // Cuando se hace clic en "Sí", muestra el mensaje.
+        yesButton.addEventListener('click', () => {
             alert('¡Obviamente sabía que aceptarías!');
         });
     </script>
