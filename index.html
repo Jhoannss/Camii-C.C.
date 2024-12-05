@@ -50,9 +50,9 @@
         const yesButton = document.getElementById('yes');
         let noClickCount = 0;
 
-        // Movimiento del botón "No" cuando pasa el ratón por encima, pero solo hasta el primer clic.
+        // Movimiento del botón "No" solo si no se ha hecho clic aún
         noButton.addEventListener('mouseover', () => {
-            if (noClickCount === 0) { // Solo mueve el botón si no se ha hecho clic en él aún
+            if (noClickCount === 0) { // El botón se mueve solo antes de que se haga clic
                 const randomX = Math.floor(Math.random() * window.innerWidth);
                 const randomY = Math.floor(Math.random() * window.innerHeight);
                 noButton.style.position = 'absolute';
@@ -61,7 +61,7 @@
             }
         });
 
-        // Cambiar el texto del botón "No" y evitar que se mueva después de cierto número de clics.
+        // Cambiar el texto del botón "No" y dejar de moverlo después del primer clic
         noButton.addEventListener('click', () => {
             noClickCount++; // Incrementamos el contador de clics
 
@@ -71,8 +71,10 @@
                 noButton.textContent = 'No digas eso';
             } else if (noClickCount === 3) {
                 noButton.textContent = 'Jaja, ni modo';
-                noButton.style.position = 'relative'; // El botón ya no se mueve después del tercer clic
             }
+
+            // Deja el botón en su posición actual y ya no lo mueve más
+            noButton.style.position = 'relative';
         });
 
         // Cuando se hace clic en "Sí", muestra el mensaje.
